@@ -1,4 +1,4 @@
-# CardDeliveryOrder_1 [![Build status](https://ci.appveyor.com/api/projects/status/2dmgcuwhq0osxv9c?svg=true)](https://ci.appveyor.com/project/danya794/carddeliveryorder)
+# CardDeliveryOrder_1 [![Build status](https://ci.appveyor.com/api/projects/status/g2b1idydl2ov6n80?svg=true)](https://ci.appveyor.com/project/danya794/carddeliveryorder-1)
 
 # Домашнее задание к занятию «2.3. Patterns»
 

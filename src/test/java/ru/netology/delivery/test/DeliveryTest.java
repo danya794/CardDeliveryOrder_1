@@ -36,9 +36,9 @@ class DeliveryTest {
         $(By.cssSelector("[data-test-id='agreement']")).click();
         $$("button").find(exactText("Запланировать")).click();
         $x("//*[contains(@class,'notification__content')]").should(appear, Duration.ofSeconds(15));
-        $(".notification__content")
-                .shouldHave(text("Встреча успешно забронирована на " + firstMeetingDate), Duration.ofSeconds(15))
-                .shouldBe(Condition.visible);
+        $("[data-test-id='success-notification'] .notification__content")
+                .shouldHave(exactText("Встреча успешно запланирована на " + firstMeetingDate), Duration.ofSeconds(15))
+                .shouldBe(visible);
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.BACK_SPACE));
         $("[data-test-id=date] input").setValue(secondMeetingDate);
         $$("button").find(exactText("Запланировать")).click();
@@ -46,12 +46,7 @@ class DeliveryTest {
                 .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $("[data-test-id='replan-notification'] button").click();
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate));
-
-        // TODO: добавить логику теста в рамках которого будет выполнено планирование и перепланирование встречи.
-        // Для заполнения полей формы можно использовать пользователя validUser и строки с датами в переменных
-        // firstMeetingDate и secondMeetingDate. Можно также вызывать методы generateCity(locale),
-        // generateName(locale), generatePhone(locale) для генерации и получения в тесте соответственно города,
-        // имени и номера телефона без создания пользователя в методе generateUser(String locale) в датагенераторе
+                .shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate))
+                .shouldBe(visible);
     }
 }
